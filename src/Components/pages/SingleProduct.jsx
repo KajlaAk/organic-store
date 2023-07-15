@@ -1,7 +1,13 @@
-import { Box, Button, Grid, Tab, Tabs, Typography } from "@mui/material";
+import { Box, Button, FormControl, FormHelperText, Grid, Input, InputLabel, Tab, Tabs, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
+import {  Link } from "react-router-dom";
 import product1 from "../../assets/product1.jpg"
-import { Link } from "react-router-dom";
+import Rating from "../Rating"
+import { useState } from "react";
+import { Label } from "@mui/icons-material";
+import CustomButton from "../Button/Button";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -31,7 +37,13 @@ function TabPanel(props) {
 //   }
 
 const SingleProduct = () => {
-  const [value, setValue] = React.useState(0);
+  const isMobile=useMediaQuery("(max-width:632px)")
+  const [value, setValue] = useState(0);
+  const [rating, setRating] = useState(0);
+
+  const handleRatingChange = (id,value) => {
+    setRating(value);
+  };
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -42,14 +54,11 @@ const SingleProduct = () => {
       <Box maxWidth={"1200px"} mx={"auto"}>
         <Box>
           <Grid container>
-            <Grid item xs={12} md={4} lg={6}>
-              <img
-                style={{ height: "600px", width: "600px" }}
-                src={product1}
-                alt=""
-              />
+            <Grid item xs={12}  lg={6} p={"20px"} textAlign={"center"}>
+            <img style={{ height: isMobile?"300px":"600px", width:isMobile?"300px":"600px"}} src={product1} alt="" />
+
             </Grid>
-            <Grid item xs={12} md={8} lg={6} px={5}>
+            <Grid item xs={12} lg={6} px={5}>
               <Typography variant="h2">Assorted Coffee</Typography>
               <Box display={"flex"} alignItems={"center"} gap={"2px"} mt={4}>
                 <Typography
@@ -170,7 +179,35 @@ const SingleProduct = () => {
                     </Typography>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Item Two
+            There are No Review.
+            <Box padding={"20px"}>
+              
+                <Typography variant="h5">Be the first to review</Typography>  
+                <Typography variant="h6">Your email address will not be published. Required fields are marked *</Typography>
+                 <Typography variant="h6">Your rating *</Typography>
+                 <Rating value={rating} handleRating={handleRatingChange} color="#FFD700" />
+                 <FormControl sx={{border:"1px solid grey", width:"100%" ,padding:"40px"}}>
+                  
+                   <Box width={"100%"} padding={"20px"}>   
+                 <h5>Your Reviw</h5>
+                  <Input type="textArea" htmlFor="my-input"sx={{width:"100%", padding:"3px"}}>Your Review</Input> 
+                  </Box>
+                  <Box display={"flex"} gap={"20px"} width={"100%"} padding={"20px"}>
+                    <Box  width={"50%"} padding={"20px"}>
+                    <h5>Name</h5>
+                  <Input type="text" htmlFor="my-input" sx={{width:"50%", padding:"3px"}}>Your Review</Input> 
+                    </Box>
+                    <Box  width={"50%"} padding={"20px"}>
+                    <h5>E-mail</h5>
+                  <Input type="mail" htmlFor="my-input" sx={{width:"50%", padding:"3px"}}>Your Review</Input> 
+                      </Box>
+                  </Box>
+                  <CustomButton text={"Submit"} icon={<FaShoppingCart />}  />
+                                
+              </FormControl>
+
+              
+            </Box>
           </TabPanel>
         </Box>
         <Box>

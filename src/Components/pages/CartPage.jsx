@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Grid,
@@ -16,29 +16,72 @@ import {
 } from "@mui/material";
 import product1 from "../../assets/product1.jpg"
 import product2 from "../../assets/product2.jpg"
+import product3 from "../../assets/product3.jpg"
+import product4 from "../../assets/product4.jpg"
 import { FaRegCalendar, FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const cartProducts = [
-  {
-    id: 11,
-    name: "Assorted Coffee",
-    category: "Groceries",
-    rating: 3.5,
-    price: 3500,
-    image: product1,
-  },
-  {
-    id: 12,
-    name: "Hand Sanitizer",
-    category: "Groceries",
-    rating: 4,
-    price: 1500,
-    image: product2,
-  },
-];
+// const cartProducts = [
+//   {
+//     id: 11,
+//     name: "Assorted Coffee",
+//     category: "Groceries",
+//     rating: 3.5,
+//     price: 3500,
+//     image: product1,
+//   },
+//   {
+//     id: 12,
+//     name: "Hand Sanitizer",
+//     category: "Groceries",
+//     rating: 4,
+//     price: 1500,
+//     image: product2,
+//   },
+// ];
 
 const CartPage = () => {
+  const [cartProducts, setCartProducts] = useState([
+    {
+      id: 11,
+      name: "Assorted Coffee",
+      category: "Groceries",
+      rating: 3.5,
+      price: 3500,
+      image: product1,
+    },
+    {
+      id: 12,
+      name: "Hand Sanitizer",
+      category: "Groceries",
+      rating: 4,
+      price: 1500,
+      image: product2,
+    },
+    {
+      id: 13,
+      name: "Handpicked Red Chillies",
+      category: "Groceries",
+      rating: 5,
+      price: 1900,
+      image: product3,
+    },
+    {
+      id: 14,
+      name: "Natural Extracted Edible Oil",
+      category: "Groceries",
+      rating: 4.5,
+      price: 2500,
+      image: product4,
+    },
+  ]);
+  const handleDeleteItem = (itemId) => {
+    const updatedCartProducts = cartProducts.filter(
+      (item) => item.id !== itemId
+    );
+    setCartProducts(updatedCartProducts);
+  };
+
   return (
     <Box py={"70px"} bgcolor="#f8f6f3">
       <Box maxWidth={"1200px"} mx={"auto"}>
@@ -119,6 +162,8 @@ const CartPage = () => {
                               placeContent: "center",
                               cursor: "pointer",
                             }}
+                            onClick={() => handleDeleteItem(item.id)}
+
                           >
                             <FaTrash />
                           </Box>

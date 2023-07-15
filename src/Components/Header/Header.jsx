@@ -15,6 +15,7 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 const Header = () => {
+  ``
   const isMobile = useMediaQuery("(max-width:920px)");
   const [open, setOpen] = React.useState(false);
 
@@ -106,7 +107,7 @@ const Header = () => {
               sx={{ textDecoration: "none" }}
               color={"grey.main"}
               component={Link}
-              to={"/everything"}
+              to={"/contact"}
             >
               Contact
             </Typography>

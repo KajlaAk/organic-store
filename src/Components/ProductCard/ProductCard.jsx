@@ -2,7 +2,7 @@ import { Box, Rating, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import { FaRupeeSign } from "react-icons/fa";
 import { Link } from "react-router-dom";
-const ProductCard = ({ product }) => {
+const ProductCard = ({product}) => {
 
   const isTablet = useMediaQuery(
     "(min-width : 580px) and (max-width : 931px)"
