@@ -1,8 +1,7 @@
 
 ## Organic Store
 
-Orgnaic Store is a E-commerce Application.In which we can buy lots of things like Groceries, Juices.Also we can Add items in our cart .
-
+Orgnaic Store is a E-commerce Application built in react.js with extensive use of hooks.In which we can buy lots of things like Groceries, Juices. Also we can Add items in our cart. We can filter the product list and sort the products based price in asc/desc orders and A-Z order.
 
 ## Deployment
 
