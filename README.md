@@ -25,9 +25,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 ## Demo
 
-To see The demo Click On this link:https://github.com/KajlaAk/organic-store
-
-
+To see The demo Click On this link: https://organic-store-byankita.netlify.app/
 ##Organic Store
 
 Orgnaic Store is a E-commerce Application.In which we can buy lots of things like Groceries, Juices.Also we can Add items in our cart .
